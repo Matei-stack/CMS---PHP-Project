@@ -75,7 +75,7 @@
 
                 <!-- Author -->
                 <p class="lead">
-                    by <a href="#">Start Bootstrap</a>
+                    by <a href="#">Incepeti sa calatoriti!</a>
                 </p>
 
                 <hr>

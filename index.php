@@ -63,6 +63,7 @@ include "includes/db.php";
                     $post_date = $row['post_date'];
                     $post_image = $row['post_image'];
                     $post_content = $row['post_content'];
+                    
 
                 ?>
 
@@ -80,7 +81,7 @@ include "includes/db.php";
                     </p>
                     <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ?></p>
                     <hr>
-                    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                    <img width = "900" height="300" class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
                     <hr>
                     <p><?php echo $post_content ?></p>
                     <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -89,9 +90,9 @@ include "includes/db.php";
 
 
                 <?php
-
+                    
                 }
-
+                
                 ?>
 
 
