@@ -10,6 +10,8 @@
         <th>Tag-uri</th>
         <th>Comentarii</th>
         <th>Data</th>
+        <th>Editare</th>
+        <th>Stergere</th>
         <?php
 
         $query = "SELECT * FROM posts ";
@@ -38,11 +40,10 @@
             while ($row = mysqli_fetch_assoc($select_categories_id)) {
                 $cat_id = $row['cat_id'];
                 $cat_title = $row['cat_title'];
-            
 
-            echo "<td>{$cat_title}</td>";
 
-        }
+                echo "<td>{$cat_title}</td>";
+            }
 
 
             echo "<td>$post_status</td>";
@@ -69,6 +70,7 @@ if (isset($_GET['delete'])) {
 
     $query = "DELETE FROM posts WHERE post_id={$the_post_id}";
     $delete_query = mysqli_query($connection, $query);
+    header("Location: posts.php"); //refresh automat dupa stergere
 }
 
 ?>

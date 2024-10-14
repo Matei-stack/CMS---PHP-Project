@@ -25,7 +25,7 @@ include "includes/db.php";
 
                 <?php
 
-                $query = "SELECT * FROM posts";
+                $query = "SELECT * FROM posts ";
                 $select_all_posts_query = mysqli_query($connection, $query);
 
 
@@ -37,7 +37,12 @@ include "includes/db.php";
                     $post_date = $row['post_date'];
                     $post_image = $row['post_image'];
                     $post_content =substr( $row['post_content'], 0,150);
+                    $post_status = $row['post_status'];
                     
+                    //if($post_status !== 'Publicat'){ echo "<h1 class ='text-center' >Postare nepublicata</h1>"; }else {
+
+                    if($post_status == 'Publicat'){
+
 
                 ?>
 
@@ -65,7 +70,7 @@ include "includes/db.php";
 
                 <?php
                     
-                }
+                }}
                 
                 ?>
 

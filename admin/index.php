@@ -19,7 +19,10 @@
 
                     <h1 class="page-header">
                         Bun venit
-                        <small>Autor</small>
+
+                        
+                        
+                        <small><?php echo $_SESSION['username']; ?></small>
                     </h1>
 
 
