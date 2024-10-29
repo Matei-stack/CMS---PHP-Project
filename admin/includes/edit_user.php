@@ -54,6 +54,17 @@ if (isset($_POST['edit_user'])) {
 
     // move_uploaded_file($post_image_temp, "../images/$post_image");
 
+    $query = "SELECT randSalt FROM users";
+    $select_randsalt_query = mysqli_query($connection, $query);
+    if(!$select_randsalt_query){
+        die("Acctiune esuata!" . mysqli_error($connection));
+    }
+    $hashFormat = "$2y$10$";
+    $salt = "iusesomecrazystrings22";
+     
+    $hashF_and_salt = $hashFormat.$salt;
+     
+    $password = crypt($user_password, $hashF_and_salt);
     
     
     $query = "UPDATE users SET ";
@@ -62,7 +73,7 @@ if (isset($_POST['edit_user'])) {
     $query .="user_role = '{$user_role}', ";
     $query .="username = '{$username}', ";
     $query .="user_email = '{$user_email}', ";
-    $query .="user_password = '{$user_password}' ";
+    $query .="user_password = '{$password}' ";
     //$query .="user_image = '{$user_image}', ";
     $query .="WHERE user_id = {$the_user_id} ";
 
@@ -93,7 +104,7 @@ if (isset($_POST['edit_user'])) {
 
 
 <select name="user_role" id="">
-<option value ="abonat"><?php echo $user_role; ?></option>
+<option value ="<?php echo $user_role; ?>"><?php echo $user_role; ?></option>
 
 
 <?php 

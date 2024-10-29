@@ -3,7 +3,7 @@
 if (isset($_POST['create_user'])) {
 
     //$post_id = $row['post_id'];
-    
+
     $user_firstname = $_POST['user_firstname'];
     $user_lastname = $_POST['user_lastname'];
     $user_role = $_POST['user_role'];
@@ -14,7 +14,7 @@ if (isset($_POST['create_user'])) {
     $username = $_POST['username'];
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
-   // $post_date = date('d-m-y');
+    // $post_date = date('d-m-y');
     //$post_comment_count = 4;
 
 
@@ -25,6 +25,8 @@ if (isset($_POST['create_user'])) {
     $create_user_query = mysqli_query($connection, $query);
 
     confirm($create_user_query);
+
+    echo "<p class='bg-success'>Utilizator creat: " . "" . "<a href='users.php'>Vizualizare utilizatori</a></p>";
 }
 
 ?>
@@ -48,16 +50,16 @@ if (isset($_POST['create_user'])) {
     </div>
 
 
-<select name="user_role" id="">
+    <select name="user_role" id="">
 
 
-<option value="abonat">Selectare rol</option>
-<option value="admin">Admin</option>
-<option value="abonat">Abonat</option>
+        <option value="abonat">Selectare rol</option>
+        <option value="admin">Admin</option>
+        <option value="abonat">Abonat</option>
 
-</select>
-<br></br>
-<!-- 
+    </select>
+    <br></br>
+    <!-- 
     <div class="form-group">
 
         <label for="post_image"> Imagine articol</label>
@@ -81,7 +83,7 @@ if (isset($_POST['create_user'])) {
 
 
     </div>
-    
+
     <div class="form-group">
 
         <label for="post_content"> Parola </label>

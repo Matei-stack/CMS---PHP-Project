@@ -1,3 +1,4 @@
+<!-- <?php session_start();?> -->
 <?php
 
 include "includes/header.php";
@@ -25,12 +26,7 @@ include "includes/db.php";
 
                 <?php
 
-if(isset($_GET['category'])){
-    $post_category_id = $_GET['category'];
-}
-
-
-                $query = "SELECT * FROM posts WHERE post_category_id= $post_category_id";
+                $query = "SELECT * FROM posts ";
                 $select_all_posts_query = mysqli_query($connection, $query);
 
 
@@ -41,19 +37,24 @@ if(isset($_GET['category'])){
                     $post_author = $row['post_author'];
                     $post_date = $row['post_date'];
                     $post_image = $row['post_image'];
-                    $post_content =substr( $row['post_content'], 0,100);
+                    $post_content =substr( $row['post_content'], 0,500);
+                    $post_status = $row['post_status'];
                     
+                    //if($post_status !== 'Publicat'){ echo "<h1 class ='text-center' >Postare nepublicata</h1>"; }else {
+
+                    if($post_status == 'Publicat'){
+
 
                 ?>
 
-                  
+                    
 
                     <!-- First Blog Post -->
                     <h2>
                         <a href="post.php?p_id=<?php echo $post_id; ?>"> <?php echo $post_title; ?></a>
                     </h2>
                     <p class="lead">
-                        by <a href="index.php"><?php echo $post_author ?></a>
+                        by <a href="author_posts.php?author=<?php echo $post_author ?>&p_id=<?php echo $post_id ?>"><?php echo $post_author ?></a>
                     </p>
                     <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ?></p>
                     <hr>
@@ -69,7 +70,7 @@ if(isset($_GET['category'])){
 
                 <?php
                     
-                }
+                }}
                 
                 ?>
 

@@ -25,6 +25,7 @@ if(isset($_POST['create_post'])){
 
     confirm($create_post_query);
 
+    echo "<p class='bg-success'> Articol creat: " . "" . "<a href='posts.php'>Vizualizare articol</a></p>";
 }
 
 ?>
@@ -79,7 +80,15 @@ echo "<option value='{$cat_id}'>{$cat_title}</option>";
     <div class="form-group">
 
         <label for="post_status"> Status articol</label>
-        <input type="text" class="form-control" name="post_status">
+<br>
+        <select name="post_status" id="">
+
+        <option value="draft">Selectare optiune</option>
+        <option value="Publicat">Publcare</option>
+        <option value="draft">Draft</option>
+        
+        </select>
+        
 
     </div>
 
@@ -101,8 +110,8 @@ echo "<option value='{$cat_id}'>{$cat_title}</option>";
 
 <div class="form-group">
 
-<label for="post_content"> Continut articol</label>
-<textarea class="form-control" name="post_content" id="" cols="30" rows="10">
+<label for="summernote"> Continut articol</label>
+<textarea class="form-control" name="post_content" id="summernote" cols="30" rows="10">
 </textarea>
 
 </div>

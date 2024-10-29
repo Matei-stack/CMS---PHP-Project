@@ -1,11 +1,11 @@
-<div class="col-md-4">
+<div class="col-md-4" >
 
 
 
 
     <!-- Blog Search Well -->
     <div class="well">
-        <h4>Blog Search</h4>
+        <h4>Cautare</h4>
         <form action="search.php" method="post">
             <div class="input-group">
                 <input name="search" type="text" class="form-control">
@@ -62,7 +62,7 @@
 
         ?>
 
-        <h4>Blog Categories</h4>
+        <h4>Categorii</h4>
         <div class="row">
             <div class="col-lg-12">
                 <ul class="list-unstyled">
